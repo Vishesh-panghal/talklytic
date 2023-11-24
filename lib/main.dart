@@ -11,7 +11,7 @@ import 'package:talklytic/Bloc/Trending_gif/trending_gif_bloc.dart';
 
 import 'package:talklytic/Screen/Auth/Screens/Responsive/desktop_view.dart';
 import 'package:talklytic/Screen/Auth/Screens/login_page.dart';
-import 'package:talklytic/Screen/Auth/Screens/splashScreen.dart';
+import 'package:talklytic/splashScreen.dart';
 import 'package:talklytic/Screen/desktop_scaffold.dart';
 import 'package:talklytic/Screen/mobile_scaffold.dart';
 import 'package:talklytic/Screen/tablet_scaffold.dart';
@@ -54,12 +54,12 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      // home: const HomePage(
-      //   mobileScaffold: SplashScreenPage(),
-      //   tabletScaffold: TabletScaffold(),
-      //   desktopScaffld: DesktopAuthScreen(),
-      // ),
-      home:const MapPage(),
+      home: const HomePage(
+        mobileScaffold: SplashScreenPage(),
+        tabletScaffold: TabletScaffold(),
+        desktopScaffld: DesktopAuthScreen(),
+      ),
+      // home:const MapPage(),
     );
   }
 

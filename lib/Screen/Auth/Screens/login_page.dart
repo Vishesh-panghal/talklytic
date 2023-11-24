@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:talklytic/Screen/Auth/Data/auth.dart';
 import 'package:talklytic/Screen/Auth/Data/color_constants.dart';
-import 'package:talklytic/Screen/Auth/Screens/splashScreen.dart';
+import 'package:talklytic/splashScreen.dart';
 import 'package:talklytic/Screen/Auth/Screens/widgets/Text_fields.dart';
 
 class LoginPageScreen extends StatefulWidget {

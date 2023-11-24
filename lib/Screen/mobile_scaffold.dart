@@ -9,7 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:talklytic/Screen/Auth/Data/auth.dart';
 import 'package:talklytic/Screen/Auth/Data/color_constants.dart';
 import 'package:talklytic/Screen/Auth/Screens/Responsive/mobile_view.dart';
-import 'package:talklytic/Screen/Auth/Screens/splashScreen.dart';
+import 'package:talklytic/splashScreen.dart';
 
 import 'widgets/Chat_Message_List.dart';
 import 'Personal/profile.dart';

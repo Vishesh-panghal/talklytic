@@ -9,7 +9,7 @@ import 'package:talklytic/Screen/Auth/Data/color_constants.dart';
 import 'package:talklytic/Screen/Auth/Screens/Responsive/mobile_view.dart';
 import 'package:talklytic/Screen/mobile_scaffold.dart';
 
-import '../../../Bloc/Trending_gif/trending_gif_bloc.dart';
+import 'Bloc/Trending_gif/trending_gif_bloc.dart';
 
 class SplashScreenPage extends StatefulWidget {
   static const String KEYLOGIN = 'login';
@@ -28,11 +28,17 @@ class _SplashScreenPageState extends State<SplashScreenPage>
 
   @override
   void initState() {
-     context.read<TrendingGifBloc>().add(GetTrendingGif());
+    context.read<TrendingGifBloc>().add(GetTrendingGif());
     _controller = AnimationController(vsync: this);
     _startTypingAnimation();
     checkAuth();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   Future<void> checkAuth() async {

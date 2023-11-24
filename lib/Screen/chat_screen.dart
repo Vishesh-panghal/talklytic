@@ -207,7 +207,7 @@ class _ChatScreenState extends State<ChatScreen> {
                                         children: [
                                           Expanded(
                                             child: TextField(
-                                              // controller: sendMsgController,
+                                              controller: sendMsgController,
                                               onChanged: (text) {
                                                 setState(() {
                                                   hasContent = text.isNotEmpty;
