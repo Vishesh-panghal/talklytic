@@ -4,14 +4,15 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'package:talklytic/Screen/Auth/Data/color_constants.dart';
 import 'package:talklytic/Screen/Auth/Screens/Responsive/desktop_view.dart';
 import 'package:talklytic/Screen/chat_screen.dart';
 
+import '../firebase/firebaseProvider.dart';
+import 'Personal/profile.dart';
 import 'widgets/Chat_Message_List.dart';
 import 'widgets/gif_page.dart';
-import 'Auth/Data/auth.dart';
-import 'Personal/profile.dart';
 
 class DesktopScaffold extends StatelessWidget {
   const DesktopScaffold({super.key});
@@ -78,7 +79,7 @@ class DesktopScaffold extends StatelessWidget {
                           PopupMenuItem(
                               child: GestureDetector(
                             onTap: () {
-                              AuthUsr().signout();
+                              FirebaseProvider().signOut();
                               Timer(Duration(milliseconds: 700), () {
                                 Navigator.pushReplacement(
                                     context,

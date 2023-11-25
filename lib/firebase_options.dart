@@ -44,7 +44,7 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCRMvwxeKFG-qLxluZ1BwMBROnJJF52xHw',
+    apiKey: 'AIzaSyDw4Bppdwk-8gtwM4i8gLBSsTpDyJvYGQM',
     appId: '1:178302982904:web:f57d838c82c9ff31e0790d',
     messagingSenderId: '178302982904',
     projectId: 'talklytic',
@@ -54,7 +54,7 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBTzr7U4K-3KtneFOtwojj1H-2LPFjQEwQ',
+    apiKey: 'AIzaSyCrtfNi89EM-Oo2j_qdjuNrMv7tL5t90Wo',
     appId: '1:178302982904:android:13d9cf1c00a2c0c6e0790d',
     messagingSenderId: '178302982904',
     projectId: 'talklytic',
@@ -62,7 +62,7 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAdI42YdbTjnnsc04qsJBu3q8cqQJmsEok',
+    apiKey: 'AIzaSyA-hozpGeE382y5z691hajBQliRrcv4DhU',
     appId: '1:178302982904:ios:f3e5b5ba419d36c9e0790d',
     messagingSenderId: '178302982904',
     projectId: 'talklytic',
@@ -71,7 +71,7 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAdI42YdbTjnnsc04qsJBu3q8cqQJmsEok',
+    apiKey: 'AIzaSyA-hozpGeE382y5z691hajBQliRrcv4DhU',
     appId: '1:178302982904:ios:fff7613005079403e0790d',
     messagingSenderId: '178302982904',
     projectId: 'talklytic',

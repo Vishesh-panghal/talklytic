@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:talklytic/Screen/Auth/Data/auth.dart';
 import 'package:talklytic/Screen/Auth/Data/color_constants.dart';
 import 'package:talklytic/splashScreen.dart';
 import 'package:talklytic/Screen/Auth/Screens/widgets/Text_fields.dart';
+
+import '../../../firebase/firebaseProvider.dart';
 
 class LoginPageScreen extends StatefulWidget {
   Widget LoginScreen;
@@ -111,7 +112,7 @@ class _LoginPageScreenState extends State<LoginPageScreen> {
                   var pref = await SharedPreferences.getInstance();
                   pref.setBool(SplashScreenPage.KEYLOGIN, true);
 
-                  AuthUsr().signinWithEmailandPassword(
+                  FirebaseProvider().signInWithEmailAndPassword(
                     email: emailController.text.trim(),
                     password: passwordController.text.trim(),
                     context: context,

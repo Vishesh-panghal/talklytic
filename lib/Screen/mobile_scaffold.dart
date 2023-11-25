@@ -6,14 +6,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:talklytic/Screen/Auth/Data/auth.dart';
+
+import "package:talklytic/Screen/Auth/Screens/Responsive/mobile_view.dart";
 import 'package:talklytic/Screen/Auth/Data/color_constants.dart';
-import 'package:talklytic/Screen/Auth/Screens/Responsive/mobile_view.dart';
 import 'package:talklytic/splashScreen.dart';
 
-import 'widgets/Chat_Message_List.dart';
+import '../firebase/firebaseProvider.dart';
 import 'Personal/profile.dart';
 import 'Personal/settings.dart';
+import 'widgets/Chat_Message_List.dart';
 
 class MobileScaffold extends StatelessWidget {
   MobileScaffold({super.key});
@@ -85,12 +86,12 @@ class MobileScaffold extends StatelessWidget {
                                       child: Text('Profile'))),
                               PopupMenuItem(
                                   child: GestureDetector(
-                                      onTap: () => Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                AppSettingPage(),
-                                          )),
+                                      // onTap: () => Navigator.push(
+                                      //     context,
+                                      //     MaterialPageRoute(
+                                      //       builder: (context) =>
+                                      //           // AppSettingPage(),
+                                      //     ),),
                                       child: Text('Setting'))),
                               PopupMenuItem(
                                   child: GestureDetector(
@@ -100,7 +101,7 @@ class MobileScaffold extends StatelessWidget {
                                                 .getInstance();
                                         pref.setBool(
                                             SplashScreenPage.KEYLOGIN, false);
-                                        AuthUsr().signout();
+                                        FirebaseProvider().signOut();
                                         Timer(Duration(milliseconds: 700), () {
                                           Navigator.pushReplacement(
                                               context,

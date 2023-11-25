@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_build_context_synchronously, avoid_print
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_build_context_synchronously, avoid_print, constant_identifier_names, file_names
 
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
@@ -47,21 +47,29 @@ class _SplashScreenPageState extends State<SplashScreenPage>
       bool? loginStatus = pref.getBool(SplashScreenPage.KEYLOGIN) ?? false;
       print(loginStatus);
       if (loginStatus) {
-        Future.delayed(Duration(seconds: 3), () {
-          Navigator.pushReplacement(
+        Future.delayed(
+          Duration(seconds: 3),
+          () {
+            Navigator.pushReplacement(
               context,
               MaterialPageRoute(
                 builder: (context) => MobileScaffold(),
-              ));
-        });
+              ),
+            );
+          },
+        );
       } else {
-        Future.delayed(Duration(seconds: 3), () {
-          Navigator.pushReplacement(
+        Future.delayed(
+          Duration(seconds: 3),
+          () {
+            Navigator.pushReplacement(
               context,
               MaterialPageRoute(
                 builder: (context) => MobileAuthScreen(),
-              ));
-        });
+              ),
+            );
+          },
+        );
       }
     } catch (e) {
       print("Error initializing SharedPreferences: $e");
@@ -69,15 +77,18 @@ class _SplashScreenPageState extends State<SplashScreenPage>
   }
 
   void _startTypingAnimation() {
-    Future.delayed(const Duration(milliseconds: 50), () {
-      if (currIndex < quoteText.length) {
-        setState(() {
-          text += quoteText[currIndex];
-          currIndex++;
-        });
-        _startTypingAnimation();
-      }
-    });
+    Future.delayed(
+      const Duration(milliseconds: 50),
+      () {
+        if (currIndex < quoteText.length) {
+          setState(() {
+            text += quoteText[currIndex];
+            currIndex++;
+          });
+          _startTypingAnimation();
+        }
+      },
+    );
   }
 
   @override
@@ -97,7 +108,7 @@ class _SplashScreenPageState extends State<SplashScreenPage>
                 endRadius: 100,
                 duration: Duration(milliseconds: 2000),
                 repeatPauseDuration: Duration(milliseconds: 700),
-                // repeat: false,
+                repeat: false,
                 child: Image.asset(
                   'assets/app_icon.png',
                   height: 200,
