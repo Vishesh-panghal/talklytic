@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-import 'widgets/Chat_Message_List.dart';
-import 'chat_screen.dart';
+import 'widgets/availableUserList.dart';
+import 'userChatScreen.dart';
 
 class TabletScaffold extends StatelessWidget {
   const TabletScaffold({super.key});
@@ -26,7 +26,7 @@ class TabletScaffold extends StatelessWidget {
           ),
           Expanded(
             flex: 2,
-            child: ChatScreen(name: 'Vishesh'),
+            child: ChatScreen(name: 'Vishesh',toId: '',),
           ),
         ],
       ),

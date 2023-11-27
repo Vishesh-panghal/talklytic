@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:talklytic/Screen/Auth/Data/color_constants.dart';
-import 'package:talklytic/splashScreen.dart';
-import 'package:talklytic/Screen/Auth/Screens/widgets/Text_fields.dart';
+import 'package:talklytic/Data/constants/color_constants.dart';
+import 'package:talklytic/Screen/splashScreen.dart';
+import 'package:talklytic/Screen/Auth/widgets/Text_fields.dart';
 
 import '../../../firebase/firebaseProvider.dart';
 

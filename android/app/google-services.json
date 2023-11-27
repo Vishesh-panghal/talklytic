@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "178302982904",
-    "project_id": "talklytic",
-    "storage_bucket": "talklytic.appspot.com"
+    "project_number": "59668504962",
+    "project_id": "chatly-a081b",
+    "storage_bucket": "chatly-a081b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:178302982904:android:13d9cf1c00a2c0c6e0790d",
+        "mobilesdk_app_id": "1:59668504962:android:993006d3f1ddaefac1af9b",
         "android_client_info": {
           "package_name": "com.example.talklytic"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCrtfNi89EM-Oo2j_qdjuNrMv7tL5t90Wo"
+          "current_key": "AIzaSyDe8PEh4-ja4WvsGKEamtZG94aC-jq51yI"
         }
       ],
       "services": {

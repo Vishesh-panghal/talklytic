@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:talklytic/Screen/Auth/Data/color_constants.dart';
+import 'package:talklytic/Data/constants/color_constants.dart';
 import 'package:talklytic/Screen/Auth/Screens/WelcomeScreen.dart';
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:talklytic/Screen/desktop_scaffold.dart';

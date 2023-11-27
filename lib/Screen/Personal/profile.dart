@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:talklytic/Data/notification_handel.dart';
-import 'package:talklytic/Screen/Auth/Data/color_constants.dart';
+import 'package:talklytic/Data/constants/color_constants.dart';
 import 'package:talklytic/Screen/mobile_scaffold.dart';
 
 class ProfileScreenPage extends StatefulWidget {
@@ -19,11 +19,10 @@ class ProfileScreenPage extends StatefulWidget {
 class _ProfileScreenPageState extends State<ProfileScreenPage> {
   File? _img;
   String localImg =
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/340px-Default_pfp.svg.png';
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/340px-Default_pfp.svg.png';
   @override
   Widget build(BuildContext context) {
     var notificationService = NotificationServices();
-    
 
     TextEditingController userNameController = TextEditingController();
     TextEditingController aboutController = TextEditingController();

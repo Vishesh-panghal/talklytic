@@ -25,7 +25,10 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -44,38 +47,28 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDw4Bppdwk-8gtwM4i8gLBSsTpDyJvYGQM',
-    appId: '1:178302982904:web:f57d838c82c9ff31e0790d',
-    messagingSenderId: '178302982904',
-    projectId: 'talklytic',
-    authDomain: 'talklytic.firebaseapp.com',
-    storageBucket: 'talklytic.appspot.com',
-    measurementId: 'G-DDQ1WSFSRE',
+    apiKey: 'AIzaSyDaQNvYIDXMsSNiviT33OyYMZR72kGkPhA',
+    appId: '1:59668504962:web:397005c7a96372eec1af9b',
+    messagingSenderId: '59668504962',
+    projectId: 'chatly-a081b',
+    authDomain: 'chatly-a081b.firebaseapp.com',
+    storageBucket: 'chatly-a081b.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCrtfNi89EM-Oo2j_qdjuNrMv7tL5t90Wo',
-    appId: '1:178302982904:android:13d9cf1c00a2c0c6e0790d',
-    messagingSenderId: '178302982904',
-    projectId: 'talklytic',
-    storageBucket: 'talklytic.appspot.com',
+    apiKey: 'AIzaSyDe8PEh4-ja4WvsGKEamtZG94aC-jq51yI',
+    appId: '1:59668504962:android:993006d3f1ddaefac1af9b',
+    messagingSenderId: '59668504962',
+    projectId: 'chatly-a081b',
+    storageBucket: 'chatly-a081b.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyA-hozpGeE382y5z691hajBQliRrcv4DhU',
-    appId: '1:178302982904:ios:f3e5b5ba419d36c9e0790d',
-    messagingSenderId: '178302982904',
-    projectId: 'talklytic',
-    storageBucket: 'talklytic.appspot.com',
+    apiKey: 'AIzaSyAM6AmtQFgz0UDdOKckkYamlcjZX76Olh4',
+    appId: '1:59668504962:ios:8ca51f3d878e886ec1af9b',
+    messagingSenderId: '59668504962',
+    projectId: 'chatly-a081b',
+    storageBucket: 'chatly-a081b.appspot.com',
     iosBundleId: 'com.example.talklytic',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyA-hozpGeE382y5z691hajBQliRrcv4DhU',
-    appId: '1:178302982904:ios:fff7613005079403e0790d',
-    messagingSenderId: '178302982904',
-    projectId: 'talklytic',
-    storageBucket: 'talklytic.appspot.com',
-    iosBundleId: 'com.example.talklytic.RunnerTests',
   );
 }

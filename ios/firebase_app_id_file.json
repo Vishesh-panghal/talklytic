@@ -1,7 +1,7 @@
 {
   "file_generated_by": "FlutterFire CLI",
   "purpose": "FirebaseAppID & ProjectID for this Firebase app in this directory",
-  "GOOGLE_APP_ID": "1:178302982904:ios:f3e5b5ba419d36c9e0790d",
-  "FIREBASE_PROJECT_ID": "talklytic",
-  "GCM_SENDER_ID": "178302982904"
+  "GOOGLE_APP_ID": "1:59668504962:ios:8ca51f3d878e886ec1af9b",
+  "FIREBASE_PROJECT_ID": "chatly-a081b",
+  "GCM_SENDER_ID": "59668504962"
 }

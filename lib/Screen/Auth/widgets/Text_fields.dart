@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:talklytic/Screen/Auth/Data/color_constants.dart';
+import 'package:talklytic/Data/constants/color_constants.dart';
 
 class MyTextFieldWidget extends StatelessWidget {
   final TextEditingController controller;

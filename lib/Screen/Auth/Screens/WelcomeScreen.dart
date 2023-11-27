@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:talklytic/Screen/Auth/Data/color_constants.dart';
+import 'package:talklytic/Data/constants/color_constants.dart';
 import 'package:talklytic/Screen/Auth/Screens/login_page.dart';
 
 import '../../../Bloc/Trending_gif/trending_gif_bloc.dart';

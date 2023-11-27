@@ -6,7 +6,7 @@ class RegisterModal {
   String uLastName;
   String uEmail;
   String uPhone;
-  String uProfilePic;
+  String? uProfilePic;
   bool isActive;
   bool isOnline;
 
@@ -16,7 +16,7 @@ class RegisterModal {
     required this.uLastName,
     required this.uEmail,
     required this.uPhone,
-    this.uProfilePic = '',
+    this.uProfilePic,
     this.isActive = true,
     this.isOnline = false,
   });
@@ -34,11 +34,11 @@ class RegisterModal {
     );
   }
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toJson() {
     return {
       'uId': uId,
       'uFirstName': uFirstName,
-      'LasttName': uLastName,
+      'uLastName': uLastName,
       'uEmail': uEmail,
       'uPhone': uPhone,
       'uProfilePic': uProfilePic,
@@ -63,11 +63,11 @@ class SignInModal {
   }
 }
 
-class SingnInWithuPhone {
-  String uPhone;
-  SingnInWithuPhone({required this.uPhone});
+// class SingnInWithuPhone {
+//   String uPhone;
+//   SingnInWithuPhone({required this.uPhone});
 
-  factory SingnInWithuPhone.fromJson(Map<String, String> json) {
-    return SingnInWithuPhone(uPhone: 'uPhone');
-  }
-}
+//   factory SingnInWithuPhone.fromJson(Map<String, String> json) {
+//     return SingnInWithuPhone(uPhone: 'uPhone');
+//   }
+// }

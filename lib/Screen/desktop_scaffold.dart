@@ -5,14 +5,14 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:talklytic/Screen/Auth/Data/color_constants.dart';
-import 'package:talklytic/Screen/Auth/Screens/Responsive/desktop_view.dart';
-import 'package:talklytic/Screen/chat_screen.dart';
+import 'package:talklytic/Data/constants/color_constants.dart';
+import 'package:talklytic/Screen/Auth/Responsive/desktop_view.dart';
+import 'package:talklytic/Screen/userChatScreen.dart';
 
 import '../firebase/firebaseProvider.dart';
 import 'Personal/profile.dart';
-import 'widgets/Chat_Message_List.dart';
-import 'widgets/gif_page.dart';
+import 'widgets/availableUserList.dart';
+import 'widgets/gifPage.dart';
 
 class DesktopScaffold extends StatelessWidget {
   const DesktopScaffold({super.key});
@@ -113,6 +113,7 @@ class DesktopScaffold extends StatelessWidget {
               child: ChatScreen(
                 name: 'Vishesh',
                 fontSize: 24,
+                toId: 'gfc',
               )),
           Expanded(
             flex: 1,

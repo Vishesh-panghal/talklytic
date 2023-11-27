@@ -7,14 +7,14 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import "package:talklytic/Screen/Auth/Screens/Responsive/mobile_view.dart";
-import 'package:talklytic/Screen/Auth/Data/color_constants.dart';
-import 'package:talklytic/splashScreen.dart';
+import 'package:talklytic/Screen/Auth/Responsive/mobile_view.dart';
+import 'package:talklytic/Data/constants/color_constants.dart';
+import 'package:talklytic/Screen/splashScreen.dart';
 
 import '../firebase/firebaseProvider.dart';
 import 'Personal/profile.dart';
 import 'Personal/settings.dart';
-import 'widgets/Chat_Message_List.dart';
+import 'widgets/availableUserList.dart';
 
 class MobileScaffold extends StatelessWidget {
   MobileScaffold({super.key});
@@ -157,7 +157,7 @@ class MobileScaffold extends StatelessWidget {
                                 children: [
                                   CircleAvatar(
                                     foregroundImage: const NetworkImage(
-                                        'https://avatars.githubusercontent.com/u/76419786?v=4'),
+                                        'https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg'),
                                     radius: size.height * 0.05,
                                   ),
                                   Text(

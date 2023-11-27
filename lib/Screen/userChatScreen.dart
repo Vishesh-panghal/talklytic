@@ -1,15 +1,22 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, must_be_immutable
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:talklytic/Screen/Auth/Data/color_constants.dart';
+import 'package:talklytic/Data/Modal/chatRoomModal.dart';
+import 'package:talklytic/Data/constants/color_constants.dart';
+import 'package:talklytic/firebase/firebaseProvider.dart';
+
+import 'widgets/chatBubble.dart';
 
 class ChatScreen extends StatefulWidget {
   String name;
   double fontSize;
-  ChatScreen({super.key, required this.name, this.fontSize = 22});
+  String toId;
+  ChatScreen(
+      {super.key, required this.name, this.fontSize = 22, required this.toId});
 
   @override
   State<ChatScreen> createState() => _ChatScreenState();
@@ -18,6 +25,18 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   TextEditingController sendMsgController = TextEditingController();
   bool hasContent = false;
+  Stream<QuerySnapshot<Map<String, dynamic>>>? chatStream;
+
+  @override
+  void initState() {
+    getChatStream();
+    super.initState();
+  }
+
+  getChatStream() {
+    chatStream = FirebaseProvider.getAllMsg(widget.toId);
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -47,7 +66,7 @@ class _ChatScreenState extends State<ChatScreen> {
                                 color: ColorConstants.whiteShade,
                               ),
                             ),
-                            SizedBox(width: size.width * 0.3),
+                            SizedBox(width: size.width * 0.1),
                             Text(
                               widget.name,
                               style: TextStyle(
@@ -173,7 +192,36 @@ class _ChatScreenState extends State<ChatScreen> {
                   child: Column(
                     children: [
                       /// =======Msg =========///
-                      Expanded(child: Container()),
+                      Expanded(
+                          child: StreamBuilder(
+                        stream: chatStream,
+                        builder: (_, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+                          if (snapshot.hasData) {
+                            var allMessages = snapshot.data!.docs;
+                            return allMessages.isNotEmpty
+                                ? ListView.builder(
+                                    itemCount: allMessages.length,
+                                    itemBuilder: (_, index) {
+                                      var currMsg = msgModal
+                                          .fromJson(allMessages[index].data());
+                                      return Container(
+                                          margin: EdgeInsets.only(
+                                              top: 12, left: 10),
+                                          child: ChatBubble(
+                                            message: currMsg,
+                                          ));
+                                    })
+                                : Container();
+                          }
+                          return Container();
+                        },
+                      )),
 
                       /// =======Text Field & more ======//
                       MediaQuery.of(context).orientation == Orientation.portrait
@@ -240,13 +288,22 @@ class _ChatScreenState extends State<ChatScreen> {
                                   ),
                                   SizedBox(width: widget.fontSize),
                                   hasContent
-                                      ? CircleAvatar(
-                                          backgroundColor:
-                                              ColorConstants.purpleShade,
-                                          child: Icon(
-                                            Icons.send,
-                                            color: ColorConstants.whiteShade,
-                                            size: widget.fontSize,
+                                      ? GestureDetector(
+                                          onTap: () {
+                                            FirebaseProvider.sendMsg(
+                                              sendMsgController.text.toString(),
+                                              widget.toId,
+                                            );
+                                            sendMsgController.clear();
+                                          },
+                                          child: CircleAvatar(
+                                            backgroundColor:
+                                                ColorConstants.blackShade,
+                                            child: Icon(
+                                              Icons.send,
+                                              color: ColorConstants.whiteShade,
+                                              size: widget.fontSize,
+                                            ),
                                           ),
                                         )
                                       : CircleAvatar(
@@ -261,6 +318,7 @@ class _ChatScreenState extends State<ChatScreen> {
                                 ],
                               ),
                             )
+                          //=====================Web View========================//
                           : Padding(
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 8.0, vertical: 20.0),
@@ -284,7 +342,7 @@ class _ChatScreenState extends State<ChatScreen> {
                                         children: [
                                           Expanded(
                                             child: TextField(
-                                              // controller: sendMsgController,
+                                              controller: sendMsgController,
                                               textAlign: TextAlign.start,
                                               decoration: InputDecoration(
                                                 border: InputBorder.none,

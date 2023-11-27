@@ -3,9 +3,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:talklytic/Screen/Auth/Screens/widgets/Text_fields.dart';
+import 'package:talklytic/Screen/Auth/widgets/Text_fields.dart';
 
-import '../Data/color_constants.dart';
+import '../../../Data/constants/color_constants.dart';
 
 class login_with_phone extends StatelessWidget {
   const login_with_phone({
@@ -52,7 +52,7 @@ class login_with_phone extends StatelessWidget {
           SizedBox(
             width: MediaQuery.of(context).orientation == Orientation.portrait
                 ? size.width * 0.9
-                : size.width /2,
+                : size.width / 2,
             child: MyTextFieldWidget(
               controller: phoneController,
               validator: (value) {

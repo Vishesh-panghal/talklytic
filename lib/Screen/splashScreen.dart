@@ -1,19 +1,20 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_build_context_synchronously, avoid_print, constant_identifier_names, file_names
+// ignore_for_file: constant_identifier_names, use_super_parameters
 
-import 'package:avatar_glow/avatar_glow.dart';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:talklytic/Screen/Auth/Data/color_constants.dart';
-import 'package:talklytic/Screen/Auth/Screens/Responsive/mobile_view.dart';
+import 'package:talklytic/Data/constants/color_constants.dart';
+import 'package:talklytic/Screen/Auth/Responsive/mobile_view.dart';
 import 'package:talklytic/Screen/mobile_scaffold.dart';
+import 'package:avatar_glow/avatar_glow.dart';
 
-import 'Bloc/Trending_gif/trending_gif_bloc.dart';
+import '../Bloc/Trending_gif/trending_gif_bloc.dart';
 
 class SplashScreenPage extends StatefulWidget {
   static const String KEYLOGIN = 'login';
-  const SplashScreenPage({super.key});
+  const SplashScreenPage({Key? key}) : super(key: key);
 
   @override
   State<SplashScreenPage> createState() => _SplashScreenPageState();
@@ -25,11 +26,15 @@ class _SplashScreenPageState extends State<SplashScreenPage>
   String text = '';
   int currIndex = 0;
   final String quoteText = '"In a world of pixels, be the one who clicks."';
+  late Timer _typingTimer;
 
   @override
   void initState() {
     context.read<TrendingGifBloc>().add(GetTrendingGif());
-    _controller = AnimationController(vsync: this);
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 2000),
+    );
     _startTypingAnimation();
     checkAuth();
     super.initState();
@@ -38,7 +43,24 @@ class _SplashScreenPageState extends State<SplashScreenPage>
   @override
   void dispose() {
     _controller.dispose();
+    _typingTimer.cancel();
     super.dispose();
+  }
+
+  void _startTypingAnimation() {
+    _typingTimer = Timer.periodic(
+      const Duration(milliseconds: 50),
+      (Timer timer) {
+        if (currIndex < quoteText.length) {
+          setState(() {
+            text += quoteText[currIndex];
+            currIndex++;
+          });
+        } else {
+          timer.cancel();
+        }
+      },
+    );
   }
 
   Future<void> checkAuth() async {
@@ -46,9 +68,9 @@ class _SplashScreenPageState extends State<SplashScreenPage>
       SharedPreferences pref = await SharedPreferences.getInstance();
       bool? loginStatus = pref.getBool(SplashScreenPage.KEYLOGIN) ?? false;
       print(loginStatus);
-      if (loginStatus) {
+      if (loginStatus!) {
         Future.delayed(
-          Duration(seconds: 3),
+          const Duration(seconds: 3),
           () {
             Navigator.pushReplacement(
               context,
@@ -74,21 +96,6 @@ class _SplashScreenPageState extends State<SplashScreenPage>
     } catch (e) {
       print("Error initializing SharedPreferences: $e");
     }
-  }
-
-  void _startTypingAnimation() {
-    Future.delayed(
-      const Duration(milliseconds: 50),
-      () {
-        if (currIndex < quoteText.length) {
-          setState(() {
-            text += quoteText[currIndex];
-            currIndex++;
-          });
-          _startTypingAnimation();
-        }
-      },
-    );
   }
 
   @override

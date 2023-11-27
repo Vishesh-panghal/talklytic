@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../firebase/firebaseProvider.dart';
-import '../Data/color_constants.dart';
-import 'widgets/Text_fields.dart';
+import '../../../Data/constants/color_constants.dart';
+import '../widgets/Text_fields.dart';
 
 class RegisterPageScreen extends StatefulWidget {
   const RegisterPageScreen({super.key});
